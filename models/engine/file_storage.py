@@ -72,7 +72,7 @@ class FileStorage:
     def get(self, cls, id):
         if cls in classes:
             for key, obj in self.__objects.items():
-                if obj.__class__ = cls and obj.id == id:
+                if obj.__class__ == cls and obj.id == id:
                     return obj
         return None
 
