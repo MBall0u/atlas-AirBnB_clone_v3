@@ -39,6 +39,7 @@ class DBStorage:
                                              HBNB_MYSQL_DB))
         if HBNB_ENV == "test":
             Base.metadata.drop_all(self.__engine)
+        self.__session = scoped_session(sessionmaker(bind=self.__engine))
 
     def all(self, cls=None):
         """query on the current database session"""
@@ -74,3 +75,11 @@ class DBStorage:
     def close(self):
         """call remove() method on the private session attribute"""
         self.__session.remove()
+
+    def get(sel, cls, id):
+        return self.__session.query(cls).filter_by(id=id).first()
+
+    def count(self, cls=None):
+        if cls is None:
+            return self.__session.query(BaseModel).count()
+        return self.__session.query(cls).count()
