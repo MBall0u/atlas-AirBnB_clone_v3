@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+"""
+starts the flask server the the needed information
+"""
 import os
 from flask import Flask
 from models.__init__ import storage
@@ -9,6 +12,7 @@ app.register_blueprint(app_views)
 
 @app.teardown_appcontext
 def close_storage(exception):
+    """closes storage on teardown"""
     storage.close()
 
 
