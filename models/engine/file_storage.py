@@ -70,10 +70,9 @@ class FileStorage:
         self.reload()
 
     def get(self, cls, id):
-        if cls in classes:
-            for key, obj in self.__objects.items():
-                if obj.__class__ == cls and obj.id == id:
-                    return obj
+        if cls and id:
+            key = "{}.{}".format(cls.__name__, id)
+            return self.all(cls).get(key)
         return None
 
     def count(self, cls=None):
