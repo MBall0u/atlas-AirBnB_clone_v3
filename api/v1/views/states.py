@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""module for States"""
+"""module for States that interacts with the State model in the database"""
 from flask import jsonify, request, abort
 from models.state import State
 from models import storage
