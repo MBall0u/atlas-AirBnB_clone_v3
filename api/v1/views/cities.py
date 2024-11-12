@@ -20,7 +20,7 @@ def get_all_cities(state_id):
 def get_city(city_id):
     city = storage.get(City, city_id)
     if not city:
-        return abort(406)
+        return abort(404)
     return jsonify(city.to_dict())
 
 
