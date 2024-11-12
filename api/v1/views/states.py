@@ -52,7 +52,6 @@ def create_state():
     new_state = State(**request_data)
     storage.new(new_state)
     storage.save()
-    storage.reload()
 
     return jsonify(new_state.to_dict()), 201
 
