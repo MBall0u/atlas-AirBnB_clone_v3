@@ -60,7 +60,7 @@ def update_city(city_id):
 
     data = request.get_json()
 
-    for key, value in req_data.items():
+    for key, value in data.items():
         if key not in ['id', 'state_id', 'created_at', 'updated_at']:
             setattr(city, key, value)
 
