@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+"""module for Cities that interacts with the City model in the database"""
 from api.v1.views import app_views
 from flask import jsonify, request, abort
 from models import storage
