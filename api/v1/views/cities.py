@@ -11,7 +11,7 @@ from models.state import State
 def get_all_cities(state_id):
     state = storage.get(State, state_id)
     if not state:
-        return abort(407)
+        return abort(404)
     cities = [city.to_dict() for city in state.cities]
     return jsonify(cities)
 
