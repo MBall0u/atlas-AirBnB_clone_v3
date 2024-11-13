@@ -76,6 +76,7 @@ class FileStorage:
         return None
 
     def count(self, cls=None):
+        """Count the number of objects in the collection"""
         if cls is None:
             return len(self.__objects)
         else:

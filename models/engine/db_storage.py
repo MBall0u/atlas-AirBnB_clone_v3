@@ -80,6 +80,7 @@ class DBStorage:
         return self.__session.query(cls).filter_by(id=id).first()
 
     def count(self, cls=None):
+        """Counts the number of records in a database"""
         if cls is None:
             return self.__session.query(BaseModel).count()
         return self.__session.query(cls).count()
