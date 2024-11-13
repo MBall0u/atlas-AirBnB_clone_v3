@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+"""module for Users that interacts with the User model in the database"""
 from flask import jsonify, abort, request
 from api.v1.views import app_views
 from models import storage
