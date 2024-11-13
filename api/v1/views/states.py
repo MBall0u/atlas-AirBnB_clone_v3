@@ -64,7 +64,7 @@ def update_state(state_id):
     state = storage.get(State, state_id)
 
     if not state:
-        abort(404)
+        abort(406)
 
     req_data = request.get_json()
     ignore_keys = ['id', 'created_at', 'updated_at']
