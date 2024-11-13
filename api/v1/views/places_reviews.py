@@ -4,6 +4,8 @@ from flask import jsonify, abort, request
 from api.v1.views import app_views
 from models import storage
 from models.review import Review
+from models.place import Place
+from models.user import User
 
 
 @app_views.route('/places/<place_id>/reviews', methods=['GET'],
@@ -12,9 +14,8 @@ def get_reviews(place_id):
     place = storage.get('Place', place_id)
     if not place:
         abort(404)
-    reviews = storage.all(Review).values()
-    place_reviews = [review for review in reviews if review.place_id == place_id]
-    return jsonify([review.to_dict() for review in place_reviews])
+    reviews = [review.to_dict() for review in place.reviews]
+    return jsonify(reviews)
 
 
 @app_views.route('/reviews/<review_id>', methods=['GET'],
