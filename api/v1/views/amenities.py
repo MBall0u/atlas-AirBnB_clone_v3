@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""module for Amenities that interacts with the Amenity model in the database"""
+"""module for Amenities that interacts with Amenity model in the database"""
 from flask import jsonify, request, abort
 from models.amenity import Amenity
 from models import storage
