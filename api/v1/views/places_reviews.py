@@ -29,7 +29,7 @@ def get_review(review_id):
 
 @app_views.route('/places/<place_id>/reviews', methods=['POST'],
                  strict_slashes=False)
-def create_review():
+def create_review(place_id):
     data = request.get_json(silent=True)
     if not data:
         abort(400, description="Not a JSON")
