@@ -44,7 +44,16 @@ def create_review():
     if 'text' not in data:
         abort(400, description="Missing text")
 
-    new_review = Review(**data)
+    new_review = Review(
+        text=data['text'], place_id=place_id, user_id=data['user_id']
+    )
+
+    for key, value in data.items():
+        if key not in [
+            'id', 'user_id', 'place_id', 'created_at', 'updated_at'
+        ]:
+            setattr(new_review, key, value)
+
     storage.new(new_review)
     storage.save()
     return jsonify(new_review.to_dict()), 201
