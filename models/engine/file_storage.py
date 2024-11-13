@@ -70,6 +70,7 @@ class FileStorage:
         self.reload()
 
     def get(self, cls, id):
+        """Retrieve an instance of a class by its ID"""
         if cls and id:
             key = "{}.{}".format(cls.__name__, id)
             return self.all(cls).get(key)

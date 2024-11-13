@@ -77,6 +77,7 @@ class DBStorage:
         self.__session.remove()
 
     def get(self, cls, id):
+        """Retrieve an instance of the specified class by its ID"""
         return self.__session.query(cls).filter_by(id=id).first()
 
     def count(self, cls=None):
